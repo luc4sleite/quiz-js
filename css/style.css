@@ -72,3 +72,45 @@ body{
     flex-direction: column;
     width: 100%;
 }
+
+.resultado{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 95%;
+}
+
+.ranking-geral{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.ranking-geral table tbody{
+    margin-top: 20px;
+}
+
+.medias{
+    display: flex;
+    margin: 0 20px;
+}
+
+.media-erro{
+    margin-left: 10px;
+}
+
+.ranking{
+    display: flex;
+    margin: 20px 50px;
+}
+
+.ranking-unico{
+    margin: 20px 50px;
+}
+
