@@ -155,14 +155,14 @@ header button:hover {
     color: var(--font-color-1);
 }
 
-.tema1 {
-    display: flex;
+.tema {
+    display: none;
     flex-direction: column;
     width: 100%;
     padding: 0 2rem;
 }
 
-.tema1 span {
+.tema span {
     text-transform: lowercase;
     font-weight: 200;
     font-size: 1rem;
