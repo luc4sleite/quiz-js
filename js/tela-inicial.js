@@ -7,7 +7,9 @@ const html = document.querySelector("#html");
 const css = document.querySelector("#css");
 const js = document.querySelector("#js");
 
+
 function iniciarQuiz(){ 
+
     if(quiz.value == "selecione"){
         html.style.display = "none";
         css.style.display = "none";
@@ -22,17 +24,7 @@ function iniciarQuiz(){
     }else if(quiz.value == "JavaScript"){
         js.style.display = "flex";
     }
-}
 
-function validarNome() {
-    const valor = campoNome.value;
-    if(valor == ""){
-        alert("Insira um nome");
-    }else if(quiz.value == "selecione"){
-        alert("Escolha o tema");
-    }else{
-        pagina.style.display = "none";
-    }
 }
 
 btnAcesso.addEventListener("click", validarNome);
