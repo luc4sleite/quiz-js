@@ -2,7 +2,6 @@ import { exibePerguntas } from "./exibePerguntas.js";
 import { perguntasHTML } from "./ques-html.js";
 import { perguntasCSS } from "./ques-css.js";
 import { perguntasJavaScript } from "./ques-js.js";
-
 const campoNome = document.querySelector(".nome");
 const btnAcesso = document.querySelector("#btn-inicio");
 const pagina = document.querySelector(".acesso-container");
@@ -12,7 +11,7 @@ const css = document.querySelector("#css");
 const js = document.querySelector("#js");
 
 
-function iniciarQuiz(){  
+function iniciarQuiz(){ 
 
     if(quiz.value == "selecione"){
         html.style.display = "none";
@@ -32,6 +31,17 @@ function iniciarQuiz(){
         exibePerguntas(perguntasJavaScript, "js");
     }
 
+}
+
+function validarNome() {
+    const valor = campoNome.value;
+    if(valor == ""){
+        alert("Insira um nome");
+    }else if(quiz.value == "selecione"){
+        alert("Escolha o tema");
+    }else{
+        pagina.style.display = "none";
+    }
 }
 
 btnAcesso.addEventListener("click", validarNome);
