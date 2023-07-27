@@ -7,14 +7,17 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
-<body class="dark">
+<body class="dark" id="corpo">
     <header>
         <button class="btn-tema" id="toggle-theme">
-            <span class="material-symbols-outlined">light_mode</span>
+            <span class="material-symbols-outlined" id="tema">light_mode</span>
         </button>
         <span class="cronometro" id="cronometro">00:00</span>
-        <button class="btn-reprodutor">
-            <span class="material-symbols-outlined">play_arrow</span>
+        <button class="btn-reprodutor" id="botao">
+            <audio  id="audioPlay" controls>
+            <source src="./musica/relaxed-vlog-night-street-131746.mp3" type="audio/mpeg">
+            </audio>
+            <span id="reprodutor" class="material-symbols-outlined">play_arrow</span>
         </button>
     </header>
 
@@ -29,7 +32,6 @@
         </select>
         <button class="btn-inicio" id="btn-inicio">Iniciar</button>
     </section>
-
     <section class="tema" id="html">     
     </section> 
 
@@ -131,6 +133,9 @@
         <button>Reiniciar</button>
     </div>  -->
     <script type="module" src="./js/script.js"></script>
+    <script type="module" src="./js/cronometro.js"></script>
+    <script type="module" src="./js/musica.js"></script>
+    <script type="module" src="./js/light-dark-theme.js"></script>
     <script type="module" src="./js/tela-inicial.js"></script>
 </body>
 </html>
