@@ -1,14 +1,18 @@
-//verificar dados tela inicial
+import { exibePerguntas } from "./exibePerguntas.js";
+import { perguntasHTML } from "./ques-html.js";
+import { perguntasCSS } from "./ques-css.js";
+import { perguntasJavaScript } from "./ques-js.js";
+
 const campoNome = document.querySelector(".nome");
 const btnAcesso = document.querySelector("#btn-inicio");
 const pagina = document.querySelector(".acesso-container");
-const quiz = document.querySelector("#tema");
+const quiz = document.querySelector("#tema-quiz");
 const html = document.querySelector("#html");
 const css = document.querySelector("#css");
 const js = document.querySelector("#js");
 
 
-function iniciarQuiz(){ 
+function iniciarQuiz(){  
 
     if(quiz.value == "selecione"){
         html.style.display = "none";
@@ -17,12 +21,15 @@ function iniciarQuiz(){
 
     }else if(quiz.value == "HTML"){
         html.style.display = "flex";
+        exibePerguntas(perguntasHTML, "html");
 
     }else if(quiz.value == "CSS"){
         css.style.display = "flex";
+        exibePerguntas(perguntasCSS, "css");
 
     }else if(quiz.value == "JavaScript"){
         js.style.display = "flex";
+        exibePerguntas(perguntasJavaScript, "js");
     }
 
 }

@@ -156,7 +156,7 @@ header button:hover {
 }
 
 .tema {
-    display: none;
+    display: flex;
     flex-direction: column;
     width: 100%;
     padding: 0 2rem;
@@ -193,8 +193,7 @@ header button:hover {
     display: flex;
     width: 100%;
     background-color: var(--background-2);
-    border-radius: 15px;
-    padding: 1rem;
+    border-radius: 15px;    
     text-align: center;
     transition-property: all;
     transition-duration: 200ms;
@@ -205,8 +204,11 @@ header button:hover {
     display: none;
 }
 
+
 .resposta-container label {
     width: 100%;
+    border-radius: 15px;
+    padding: 1rem;
     font-weight: 600;
     text-align: center;
     transition-property: all;

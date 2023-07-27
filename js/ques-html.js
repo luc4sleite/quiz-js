@@ -79,40 +79,6 @@ export const perguntasHTML = [
         alternativas: ["&lt;header&gt;", "&lt;title&gt;", "&lt;h1&gt;", "&lt;head&gt;"],
         resposta: "&lt;title&gt;",
     },
+
 ];
 
-const secaoHTML = document.querySelector(".tema");
-
-export function exibePerguntas(perguntas) {
-    secaoHTML.innerHTML = "";
-    secaoHTML.innerHTML = `
-        <span>Tema</span>
-        <h2>HTML</h2>
-    `
-    console.log(perguntas[0].alternativas[0])
-    for (let i = 0; i <= perguntas.length - 1; i++) {
-        console.log(i);
-        secaoHTML.innerHTML += `
-            <div class="pergunta-container">
-                <span>Questão ${perguntas[i].id}</span>
-                <h3>${perguntas[i].pergunta}</h3>
-                <div class="resposta-container">
-                    <input type="radio" value="${perguntas[i].alternativas[0]}"  id="resposta1-${perguntas[i].id}" name="resposta"> 
-                    <label for="resposta1-${perguntas[i].id}">${perguntas[i].alternativas[0]}</label>
-                </div>
-                <div class="resposta-container">
-                    <input type="radio" value="${perguntas[i].alternativas[1]}"  id="resposta2-${perguntas[i].id}" name="resposta"> 
-                    <label for="resposta2-${perguntas[i].id}">${perguntas[i].alternativas[1]}</label>
-                </div>
-                <div class="resposta-container">
-                    <input type="radio" value="${perguntas[i].alternativas[2]}"  id="resposta3-${perguntas[i].id}" name="resposta"> 
-                    <label for="resposta3-${perguntas[i].id}">${perguntas[i].alternativas[2]}</label>
-                </div>
-                <div class="resposta-container">
-                    <input type="radio" value="${perguntas[i].alternativas[3]}"  id="resposta4-${perguntas[i].id}" name="resposta"> 
-                    <label for="resposta4-${perguntas[i].id}">${perguntas[i].alternativas[3]}</label>
-                </div>
-            </div>
-        `
-    }
-}
