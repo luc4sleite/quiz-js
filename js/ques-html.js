@@ -79,4 +79,6 @@ export const perguntasHTML = [
         alternativas: ["&lt;header&gt;", "&lt;title&gt;", "&lt;h1&gt;", "&lt;head&gt;"],
         resposta: "&lt;title&gt;",
     },
+
 ];
+
