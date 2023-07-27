@@ -22,7 +22,7 @@
 }
 
 .light {
-    --background-1: #ffffff;
+    --background-1: #0884f8;
     --background-2: #fafafa;
 
     --font-color-1: #fb2576;
@@ -75,7 +75,7 @@ header button:hover {
 }
 
 .cronometro {
-    display: none;
+    display: flex;
     font-size: 24px;
     font-weight: 600;
     color: var(--font-color-3);
