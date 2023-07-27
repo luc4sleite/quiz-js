@@ -47,3 +47,4 @@ function validarNome() {
 btnAcesso.addEventListener("click", validarNome);
 btnAcesso.addEventListener("click", iniciarQuiz);
 
+
