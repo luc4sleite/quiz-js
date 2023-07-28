@@ -1,7 +1,8 @@
+
 let intervaloCronometro;
 let segundos = 0;
 
-function iniciarCronometro() {
+export function iniciarCronometro() {
   segundos = 0;
   atualizarCronometroDisplay();
   document.getElementById("cronometroDisplay").style.display = "block";
@@ -23,5 +24,3 @@ function atualizarCronometroDisplay() {
   const tempoDisplay = `${minutos}:${segundosDisplay}`;
   document.getElementById("cronometroDisplay").innerText = tempoDisplay;
 }
-
-document.getElementById("btn-inicio").addEventListener("click", iniciarCronometro);
