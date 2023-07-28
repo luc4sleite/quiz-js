@@ -3,7 +3,7 @@ export const perguntasJavaScript = [
         id: 1,
         pergunta: "Quais dos seguintes é um tipo de dados em JavaScript?",
         alternativas: ["string", "booleano", "ambos", "nenhum"],
-        resposta: "ambos",
+        resposta: "3",
     },
     {
         id: 2,
@@ -15,47 +15,47 @@ export const perguntasJavaScript = [
             "create function myFunction()",
             "new Function()",
         ],
-        resposta: "function myFunction()",
+        resposta: "1",
     },
     {
         id: 3,
         pergunta:
             "Qual método de array é usado para adicionar um ou mais elementos ao final do array e retorna o novo comprimento do array?",
         alternativas: ["pop()", "push()", "append()", "join()"],
-        resposta: "push()",
+        resposta: "2",
     },
     {
         id: 4,
         pergunta:
             "O JavaScript é uma linguagem de programação compilada?",
         alternativas: ["Sim", "Não", "Às vezes", "Depende"],
-        resposta: "Não",
+        resposta: "2",
     },
     {
         id: 5,
         pergunta: "Qual símbolo é usado para comentários em JavaScript?",
         alternativas: ["//", "/* */", "<!-- -->", "#"],
-        resposta: "//",
+        resposta: "1",
     },
     {
         id: 6,
         pergunta:
             "Qual método de string é usado para combinar a regexpr com a string e substituir o conteúdo correspondente?",
         alternativas: ["match()", "replace()", "search()", "concat()"],
-        resposta: "replace()",
+        resposta: "2",
     },
     {
         id: 7,
         pergunta:
             "Qual declaração é usada para testar condições em JavaScript?",
         alternativas: ["if/else", "for", "switch", "teste"],
-        resposta: "if/else",
+        resposta: "1",
     },
     {
         id: 8,
         pergunta: "Qual é o operador de atribuição em JavaScript?",
         alternativas: ["=", "==", "===", ":="],
-        resposta: "=",
+        resposta: "1",
     },
     {
         id: 9,
@@ -67,12 +67,12 @@ export const perguntasJavaScript = [
             "Math.round()",
             "Math.random()",
         ],
-        resposta: "Math.round()",
+        resposta: "3",
     },
     {
         id: 10,
         pergunta: "Qual evento é acionado quando um elemento HTML é clicado?",
         alternativas: ["onchange", "onmouseclick", "onclick", "onmouseover"],
-        resposta: "onclick",
+        resposta: "3",
     },
 ];

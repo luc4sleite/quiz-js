@@ -1,8 +1,5 @@
-import { perguntasHTML } from "./ques-html.js";
-
 export function exibePerguntas(perguntas, id) {
     const tema = document.getElementById(`${id}`);
-  
     tema.innerHTML = "";
     tema.innerHTML = `
         <span>Tema</span>
@@ -14,19 +11,19 @@ export function exibePerguntas(perguntas, id) {
                 <span>Questão ${perguntas[i].id}</span>
                 <h3>${perguntas[i].pergunta}</h3>
                 <div class="resposta-container">
-                    <input class="alternativa" type="radio" value="${perguntas[i].alternativas[0]}"  id="resposta1-${perguntas[i].id}" name="${perguntas[i].id}"> 
+                    <input class="alternativa" type="radio" value="1"  id="resposta1-${perguntas[i].id}" name="${perguntas[i].id}"> 
                     <label for="resposta1-${perguntas[i].id}">${perguntas[i].alternativas[0]}</label>
                 </div>
                 <div class="resposta-container">
-                    <input class="alternativa" type="radio" value="${perguntas[i].alternativas[1]}"  id="resposta2-${perguntas[i].id}" name="${perguntas[i].id}"> 
+                    <input class="alternativa" type="radio" value="2"  id="resposta2-${perguntas[i].id}" name="${perguntas[i].id}"> 
                     <label for="resposta2-${perguntas[i].id}">${perguntas[i].alternativas[1]}</label>
                 </div>
                 <div class="resposta-container">
-                    <input class="alternativa" type="radio" value="${perguntas[i].alternativas[2]}"  id="resposta3-${perguntas[i].id}" name="${perguntas[i].id}"> 
+                    <input class="alternativa" type="radio" value="3"  id="resposta3-${perguntas[i].id}" name="${perguntas[i].id}"> 
                     <label for="resposta3-${perguntas[i].id}">${perguntas[i].alternativas[2]}</label>
                 </div>
                 <div class="resposta-container">
-                    <input class="alternativa" type="radio" value="${perguntas[i].alternativas[3]}"  id="resposta4-${perguntas[i].id}" name="${perguntas[i].id}"> 
+                    <input class="alternativa" type="radio" value="4"  id="resposta4-${perguntas[i].id}" name="${perguntas[i].id}"> 
                     <label for="resposta4-${perguntas[i].id}">${perguntas[i].alternativas[3]}</label>
                 </div>
             </div>
@@ -34,7 +31,6 @@ export function exibePerguntas(perguntas, id) {
         
     }
     const inputEl = document.querySelectorAll(".alternativa") 
-   
     
 
 
@@ -45,8 +41,8 @@ export function exibePerguntas(perguntas, id) {
             for(let otherInput of inputEl){
                 const otherContainer = otherInput.parentNode;
                 if (otherInput !== inputClicked) {
-                  otherContainer.style.backgroundColor = 'var(--font-color-3)';
-                  otherContainer.style.color = 'var(--font-color-1)';
+                    otherContainer.style.backgroundColor = 'var(--font-color-3)';
+                    otherContainer.style.color = 'var(--font-color-1)';
                 }
 
             }
