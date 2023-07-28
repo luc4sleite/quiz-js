@@ -3,6 +3,7 @@ import { perguntasHTML } from "./ques-html.js";
 import { perguntasCSS } from "./ques-css.js";
 import { perguntasJavaScript } from "./ques-js.js";
 import { verificarRespostas } from "./verificarRespostas.js";
+import { iniciarCronometro } from "./cronometro.js";
 
 const campoNome = document.querySelector(".nome");
 const btnAcesso = document.querySelector("#btn-inicio");
@@ -13,27 +14,22 @@ const css = document.querySelector("#CSS");
 const js = document.querySelector("#JavaScript");
 const btnConcluir = document.querySelector("#btn-concluir");
 
-function iniciarQuiz(){  
-    if(quiz.value == "selecione"){
-        html.style.display = "none";
-        css.style.display = "none";
-        js.style.display = "none";
-
-    }else if(quiz.value == "HTML"){
+function iniciarQuiz(){
+    if(quiz.value == "HTML" && campoNome.value != ""){
         html.style.display = "flex";
         exibePerguntas(perguntasHTML, "HTML");
         btnConcluir.addEventListener("click", ()=>{
             verificarRespostas(perguntasHTML);
         });
 
-    }else if(quiz.value == "CSS"){
+    }else if(quiz.value == "CSS" && campoNome.value != ""){
         css.style.display = "flex";
         exibePerguntas(perguntasCSS, "CSS");
         btnConcluir.addEventListener("click", ()=>{
             verificarRespostas(perguntasCSS);
         });
 
-    }else if(quiz.value == "JavaScript"){
+    }else if(quiz.value == "JavaScript" && campoNome.value != ""){
         js.style.display = "flex";
         exibePerguntas(perguntasJavaScript, "JavaScript");
         btnConcluir.addEventListener("click", ()=>{
@@ -50,10 +46,12 @@ function validarNome() {
         alert("Escolha o tema");
     }else{
         pagina.style.display = "none";
+        iniciarCronometro();
     }
 }
 
 btnAcesso.addEventListener("click", validarNome);
 btnAcesso.addEventListener("click", iniciarQuiz);
+
 
 
