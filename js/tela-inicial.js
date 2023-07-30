@@ -13,6 +13,7 @@ const html = document.querySelector("#HTML");
 const css = document.querySelector("#CSS");
 const js = document.querySelector("#JavaScript");
 const btnConcluir = document.querySelector("#btn-concluir");
+const reiniciarConcluirDiv = document.querySelector(".btns");
 
 function iniciarQuiz(){
     if(quiz.value == "HTML" && campoNome.value != ""){
@@ -34,6 +35,7 @@ function iniciarQuiz(){
         exibePerguntas(perguntasJavaScript, "JavaScript");
         btnConcluir.addEventListener("click", ()=>{
             verificarRespostas(perguntasJavaScript);
+            
         });
     }
 }
@@ -47,6 +49,7 @@ function validarNome() {
     }else{
         pagina.style.display = "none";
         iniciarCronometro();
+        reiniciarConcluirDiv.style.display = "flex"
     }
 }
 
