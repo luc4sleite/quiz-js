@@ -19,6 +19,10 @@
     --font-color-1: #fb2576;
     --font-color-2: #150050;
     --font-color-3: #fafafa;
+    --font-color-4: #4E9F3D;
+    --font-color-5: #EA1515;
+    
+
 }
 
 .light {
@@ -28,11 +32,15 @@
     --font-color-1: #fb2576;
     --font-color-2: #150050;
     --font-color-3: #fafafa;
+    --font-color-4: #4E9F3D;
+    --font-color-5: #EA1515;
+
 }
 
 body {
     font-family: "Mona Sans", sans-serif;
     background: var(--background-1);
+   
     background-repeat: no-repeat;
     height: 100%;
     color: var(--font-color-1);
@@ -223,7 +231,35 @@ header button:hover {
 
 .btns{
     display: none;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 1rem;
+    border: none;    
 }
+
+.btn{
+    padding: 1rem;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--font-color-1);
+    color: var(--font-color-3);
+    font-size:1.25rem;
+    font-weight: 600;
+    transition-duration: 400ms;
+}
+
+#btn-concluir:hover{
+    background-color: var(--font-color-4);
+    color: var(--font-color-3);
+}
+
+#btn-reiniciar:hover{
+    background-color: var(--font-color-5);
+    color: var(--font-color-3);
+}
+
+
+
 
 .resultado {
     width: 100%;
