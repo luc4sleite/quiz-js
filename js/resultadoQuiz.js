@@ -1,80 +1,63 @@
-const tabelaResultado = document.querySelector(".resultado");
-const nome = document.querySelector("#nome");
-const rankingDados = document.querySelector("#ranking-dados")
-const armazenarRanking = [
-    {
-        nome: "Gabriel",
-        tema: "JavaScript",
-        tempo: "00:42",
-        data: "28/07/2023",
-        pontos: 9
-    },
-    {
-        nome: "Lucas",
-        tema: "CSS",
-        tempo: "00:30",
-        data: "29/07/2023",
-        pontos: 7
-    }
-];
+import { dadosRanking } from "./dadosRanking.js";
 
-export function armazenaDados(nome, tema, tempo, data, pontos){
-    for(let i = 0; i < armazenarRanking.length; i++){
-        if(pontos > armazenarRanking[i].pontos){
-            armazenarRanking.splice(i, 0, 
-                {
-                    nome: nome,
-                    tema: tema,
-                    tempo: tempo,
-                    data: data,
-                    pontos: pontos
-                }
-            )
+const tabelaResultado = document.querySelector(".resultado");
+const desempenho = document.querySelector(".desempenho");
+const rankingDados = document.querySelector("#ranking-dados");
+
+export function incluirDados(nome, tema, tempo, data, pontos) {
+    dadosRanking.push({
+        nome: nome,
+        tema: tema,
+        tempo: tempo,
+        data: data,
+        pontos: pontos
+    });
+}
+
+function ordenarRanking() {
+    dadosRanking.sort((a, b) => {
+        if (a.pontos > b.pontos) {
+            return -1;
+        } else if (a.pontos < b.pontos) {
+            return 1;
+        } else {
+            return 0;
         }
-        //arrumar a condição se caso os pontos forem menor q todos da tabela;
-        console.log(armazenarRanking);
-    }
+    });
 }
 
 export function exibirRanking(id, pontos) {
-    const data = new Date();
-    const dia = data.getDate();
-    var mes = data.getMonth() + 1;
-    var ano = data.getFullYear();
-    var dataQuiz = dia + '/' + mes + '/' + ano;
-
-    const tema = document.querySelector(`#${id}`)
-    tema.style.display = "none";
+    ordenarRanking();
     tabelaResultado.style.display = "flex";
-    for(let i = 0; i < armazenarRanking.length; i++){
+    rankingDados.innerHTML = "";
+    for(let i = 0; i < dadosRanking.length; i++){
         rankingDados.innerHTML += `
             <tr>
-                <td>${armazenarRanking[i].nome}</td>
-                <td>${armazenarRanking[i].tema}</td>
-                <td>${armazenarRanking[i].tempo}</td>
-                <td>${armazenarRanking[i].data}</td>
-                <td>${armazenarRanking[i].pontos}/10</td>
+                <td>${dadosRanking[i].nome}</td>
+                <td>${dadosRanking[i].tema}</td>
+                <td>${dadosRanking[i].tempo}</td>
+                <td>${dadosRanking[i].data}</td>
+                <td>${dadosRanking[i].pontos}/10</td>
             </tr>
         `
-        console.log(i);
     }
 
-    tabelaResultado.innerHTML += `
-    <div class="desempenho">
-    <span>seu</span>
-    <h3>Desempenho</h3>
-    <div class="media">
-        <div class="media-acerto">
-            <h4>Média de acertos</h3>
-            <p>${pontos}/10</p>
+    desempenho.innerHTML = `
+        <span>seu</span>
+        <h3>Desempenho</h3>
+        <div class="media">
+            <div class="media-acerto">
+                <h4>Média de acertos</h3>
+                <p>${pontos}/10</p>
+            </div>
+            <div class="media-erro">
+                <h4>Média de erros</h3>
+                <p>${Math.abs(pontos - 10)}/10</p>
+            </div>
         </div>
-        <div class="media-erro">
-            <h4>Média de erros</h3>
-            <p>${pontos - 10}/10</p>
-        </div>
-        </div>
-    </div>
     `
+
+    console.log(dadosRanking);
     
     // <div class="ranking-temas">
     // <span>temas</span>

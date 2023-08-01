@@ -3,9 +3,9 @@ import { perguntasHTML } from "./ques-html.js";
 import { perguntasCSS } from "./ques-css.js";
 import { perguntasJavaScript } from "./ques-js.js";
 import { verificarRespostas } from "./verificarRespostas.js";
-import { iniciarCronometro } from "./cronometro.js";
+import { calcularTempoPercorrido, iniciarCronometro } from "./cronometro.js";
 import { pararCronometro } from "./cronometro.js";
-import { armazenaDados, exibirRanking } from "./resultadoQuiz.js";
+import { exibirRanking, incluirDados } from "./resultadoQuiz.js";
 
 const campoNome = document.querySelector(".nome");
 const btnAcesso = document.querySelector("#btn-inicio");
@@ -15,18 +15,38 @@ const html = document.querySelector("#HTML");
 const css = document.querySelector("#CSS");
 const js = document.querySelector("#JavaScript");
 const btnConcluir = document.querySelector("#btn-concluir");
+const btnJogarNovamente = document.querySelector("#btn-jogar")
 const reiniciarConcluirDiv = document.querySelector(".btns");
 const ranking = document.querySelector(".resultado");
 
 function iniciarQuiz(){
+    const data = new Date();
+    const dia = data.getDate();
+    const mes = data.getMonth() + 1;
+    const ano = data.getFullYear();
+    const dataAtual = `${dia}/${mes}/${ano}`;
+
+
     if(quiz.value == "HTML" && campoNome.value != ""){
         html.style.display = "flex";
         exibePerguntas(perguntasHTML, "HTML");
+        btnJogarNovamente.style.display = "none";
         btnConcluir.addEventListener("click", ()=>{
+            const dataFinal = new Date();
+            const tempo = calcularTempoPercorrido(data, dataFinal);
+            const tempoFormatado = `${tempo.minutos}:${tempo.segundos}`;
             const pontuacao = verificarRespostas(perguntasHTML);
-            armazenaDados(campoNome.value, quiz.value, "00:00", "31/04/2002", pontuacao);
-            exibirRanking(quiz.value, pontuacao);
             pararCronometro();
+            incluirDados(campoNome.value, quiz.value, tempoFormatado, dataAtual, pontuacao);
+            exibirRanking(quiz.value, pontuacao);
+            btnConcluir.style.display = "none";
+            btnJogarNovamente.style.display = "flex";
+            btnJogarNovamente.addEventListener("click", ()=>{
+                html.style.display = "none";
+                ranking.style.display = "none";
+                pagina.style.display = "flex";
+                btnConcluir.style.display = "flex";
+            });
         });
 
     }else if(quiz.value == "CSS" && campoNome.value != ""){
@@ -34,9 +54,10 @@ function iniciarQuiz(){
         exibePerguntas(perguntasCSS, "CSS");
         btnConcluir.addEventListener("click", ()=>{
             const pontuacao = verificarRespostas(perguntasCSS);
-            armazenaDados(campoNome.value, quiz.value, "00:00", "31/04/2002", pontuacao);
+            // armazenaDados(campoNome.value, quiz.value, "00:00", "31/04/2002", pontuacao);
             exibirRanking(quiz.value, pontuacao);
-            pararCronometro();
+            const tempo = pararCronometro();
+            console.log(tempo);
         });
 
     }else if(quiz.value == "JavaScript" && campoNome.value != ""){
@@ -44,9 +65,10 @@ function iniciarQuiz(){
         exibePerguntas(perguntasJavaScript, "JavaScript");
         btnConcluir.addEventListener("click", ()=>{
             const pontuacao = verificarRespostas(perguntasJavaScript);
-            armazenaDados(campoNome.value, quiz.value, "00:00", "31/04/2002", pontuacao);
+            // armazenaDados(campoNome.value, quiz.value, "00:00", "31/04/2002", pontuacao);
             exibirRanking(quiz.value, pontuacao);
-            pararCronometro();
+            const tempo = pararCronometro();
+            console.log(tempo);
         });
     }
 }
