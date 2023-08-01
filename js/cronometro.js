@@ -9,7 +9,7 @@ export function iniciarCronometro() {
   intervaloCronometro = setInterval(atualizarCronometro, 1000);
 }
 
-function pararCronometro() {
+export function pararCronometro() {
   clearInterval(intervaloCronometro);
 }
 

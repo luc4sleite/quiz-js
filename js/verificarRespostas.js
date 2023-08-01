@@ -17,7 +17,5 @@ export function verificarRespostas(perguntas) {
             }
         }
     }
-
-    console.log(respostasSelecionadas);
-    console.log(pontuacao);
+    return pontuacao;
 }

@@ -4,6 +4,8 @@ import { perguntasCSS } from "./ques-css.js";
 import { perguntasJavaScript } from "./ques-js.js";
 import { verificarRespostas } from "./verificarRespostas.js";
 import { iniciarCronometro } from "./cronometro.js";
+import { pararCronometro } from "./cronometro.js";
+import { armazenaDados, exibirRanking } from "./resultadoQuiz.js";
 
 const campoNome = document.querySelector(".nome");
 const btnAcesso = document.querySelector("#btn-inicio");
@@ -14,28 +16,37 @@ const css = document.querySelector("#CSS");
 const js = document.querySelector("#JavaScript");
 const btnConcluir = document.querySelector("#btn-concluir");
 const reiniciarConcluirDiv = document.querySelector(".btns");
+const ranking = document.querySelector(".resultado");
 
 function iniciarQuiz(){
     if(quiz.value == "HTML" && campoNome.value != ""){
         html.style.display = "flex";
         exibePerguntas(perguntasHTML, "HTML");
         btnConcluir.addEventListener("click", ()=>{
-            verificarRespostas(perguntasHTML);
+            const pontuacao = verificarRespostas(perguntasHTML);
+            armazenaDados(campoNome.value, quiz.value, "00:00", "31/04/2002", pontuacao);
+            exibirRanking(quiz.value, pontuacao);
+            pararCronometro();
         });
 
     }else if(quiz.value == "CSS" && campoNome.value != ""){
         css.style.display = "flex";
         exibePerguntas(perguntasCSS, "CSS");
         btnConcluir.addEventListener("click", ()=>{
-            verificarRespostas(perguntasCSS);
+            const pontuacao = verificarRespostas(perguntasCSS);
+            armazenaDados(campoNome.value, quiz.value, "00:00", "31/04/2002", pontuacao);
+            exibirRanking(quiz.value, pontuacao);
+            pararCronometro();
         });
 
     }else if(quiz.value == "JavaScript" && campoNome.value != ""){
         js.style.display = "flex";
         exibePerguntas(perguntasJavaScript, "JavaScript");
         btnConcluir.addEventListener("click", ()=>{
-            verificarRespostas(perguntasJavaScript);
-            
+            const pontuacao = verificarRespostas(perguntasJavaScript);
+            armazenaDados(campoNome.value, quiz.value, "00:00", "31/04/2002", pontuacao);
+            exibirRanking(quiz.value, pontuacao);
+            pararCronometro();
         });
     }
 }
@@ -53,8 +64,17 @@ function validarNome() {
     }
 }
 
+// function concluir() {
+//     if(ranking.style.display == "flex"){
+//         ranking.style.display = "none";
+//         pagina.style.display = "flex";
+//     }
+// }
+
 btnAcesso.addEventListener("click", validarNome);
 btnAcesso.addEventListener("click", iniciarQuiz);
+// const btnReiniciar = document.querySelector("#btn-reiniciar");
+// btnReiniciar.addEventListener("click", concluir);
 
 
 
