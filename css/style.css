@@ -253,7 +253,7 @@ header button:hover {
     color: var(--font-color-3);
 }
 
-#btn-reiniciar:hover{
+#btn-jogar:hover{
     background-color: var(--font-color-5);
     color: var(--font-color-3);
 }
@@ -332,14 +332,36 @@ header button:hover {
     text-transform: uppercase;
 }
 
-.media {
+.media h3, .media p {
+    display: inline-block;
+    margin-right: 10px; 
+    color: #fafafa;
+    font-size: 12px;
+    margin-top: 2rem;
+    }
+
+    .media p {
+        font-size: 17px;
+    }
+
+    .media .verde {
+        color: rgb(10, 227, 10);
+    }
+
+    .media .vermelho {
+        color: red;
+    }
+
+
+
+.usuario {
     display: flex;
     width: 100%;
     column-gap: 5rem;
     margin-top: 1rem;
 }
 
-.media-acerto, .media-erro {
+.usuario-acerto, .usuario-erro {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -350,20 +372,20 @@ header button:hover {
     gap: 0.5rem;
 }
 
-.media-acerto {
+.usuario-acerto {
     background-color: green;
 }
 
-.media-erro {
+.usuario-erro {
     background-color: red;
 }
 
-.media-acerto h4, .media-erro h4 {
+.usuario-acerto h4, .usuario-erro h4 {
     font-weight: 400;
     font-size: 14px;
 }
 
-.media-acerto p, .media-erro p {
+.usuario-acerto p, .usuario-erro p {
     font-weight: 900;
     font-size: 32px;
 }
@@ -415,3 +437,5 @@ header button:hover {
     font-size: 18px;
     color: var(--font-color-1);
 }
+
+

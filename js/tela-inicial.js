@@ -16,8 +16,9 @@ const css = document.querySelector("#CSS");
 const js = document.querySelector("#JavaScript");
 const btnConcluir = document.querySelector("#btn-concluir");
 const btnJogarNovamente = document.querySelector("#btn-jogar")
-const reiniciarConcluirDiv = document.querySelector(".btns");
+const reiniciarConcluirDiv = document.querySelector("#botoes");
 const ranking = document.querySelector(".resultado");
+const cronometroDisplay = document.querySelector("#cronometroDisplay");
 
 function iniciarQuiz(){
     const data = new Date();
@@ -31,6 +32,7 @@ function iniciarQuiz(){
         html.style.display = "flex";
         exibePerguntas(perguntasHTML, "HTML");
         btnJogarNovamente.style.display = "none";
+        
         btnConcluir.addEventListener("click", ()=>{
             const dataFinal = new Date();
             const tempo = calcularTempoPercorrido(data, dataFinal);
@@ -41,11 +43,14 @@ function iniciarQuiz(){
             exibirRanking(quiz.value, pontuacao);
             btnConcluir.style.display = "none";
             btnJogarNovamente.style.display = "flex";
+            
             btnJogarNovamente.addEventListener("click", ()=>{
                 html.style.display = "none";
                 ranking.style.display = "none";
+                reiniciarConcluirDiv.style.display = "none";
                 pagina.style.display = "flex";
-                btnConcluir.style.display = "flex";
+                pararCronometro();
+                cronometroDisplay.style.display = "none";
             });
         });
 
@@ -83,6 +88,7 @@ function validarNome() {
         pagina.style.display = "none";
         iniciarCronometro();
         reiniciarConcluirDiv.style.display = "flex"
+        btnConcluir.style.display = "flex";
     }
 }
 
