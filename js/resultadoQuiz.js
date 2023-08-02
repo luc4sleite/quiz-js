@@ -68,9 +68,9 @@ export function exibirRanking(id, pontos) {
         </div>
         <div class="media">
             <h3>Média de acertos</h3>
-            <p>${calculaMedia().toFixed(1)}/10</p>
+            <p class="verde">${calculaMedia().toFixed(1)}/10</p>
             <h3>Média de erros</h3>
-            <p>${(10 - calculaMedia()).toFixed(1)}/10</p>
+            <p class="vermelho">${(10 - calculaMedia()).toFixed(1)}/10</p>
         </div>
     `
 

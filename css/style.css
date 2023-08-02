@@ -332,6 +332,28 @@ header button:hover {
     text-transform: uppercase;
 }
 
+.media h3, .media p {
+    display: inline-block;
+    margin-right: 10px; 
+    color: #fafafa;
+    font-size: 12px;
+    margin-top: 2rem;
+    }
+
+    .media p {
+        font-size: 17px;
+    }
+
+    .media .verde {
+        color: rgb(10, 227, 10);
+    }
+
+    .media .vermelho {
+        color: red;
+    }
+
+
+
 .usuario {
     display: flex;
     width: 100%;
@@ -415,3 +437,5 @@ header button:hover {
     font-size: 18px;
     color: var(--font-color-1);
 }
+
+
