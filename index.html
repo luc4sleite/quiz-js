@@ -17,13 +17,13 @@
             <audio  id="audioPlay" controls>
             <source src="./musica/relaxed-vlog-night-street-131746.mp3" type="audio/mpeg">
             </audio>
-            <span id="reprodutor" class="material-symbols-outlined">play_arrow</span>
+            <span id="reprodutor" class="material-symbols-outlined">pause</span>
         </button>
     </header>
 
     <section class="acesso-container">
         <h1>Vamos jogar?</h1>
-        <input type="text" name="nome" class="nome" placeholder="Seu nome">
+        <input type="text" name="nome" class="nome" id="nome" placeholder="Seu nome">
         <select name="tema" id="tema-quiz">
             <option value="selecione" selected disabled>Escolha o tema</option>
             <option value="HTML">HTML</option>
@@ -42,9 +42,7 @@
     <section class="tema" id="JavaScript">     
     </section>
 
-    
-
-    <!-- <section class="resultado">
+    <section class="resultado">
         <div class="ranking-geral">
             <span>Top 5</span>
             <h3>Ranking</h3>
@@ -58,81 +56,21 @@
                         <td>Pontuação</td>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>João</td>
-                        <td>HTML</td>
-                        <td>00:00:00</td>
-                        <td>00/00/0000</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>Maria</td>
-                        <td>HTML</td>
-                        <td>00:00:00</td>
-                        <td>00/00/0000</td>
-                        <td>10</td>
-                    </tr>
+                <tbody id="ranking-dados">
                 </tbody>
             </table>
-        </div>
-        <div class="desempenho">
-            <span>seu</span>
-            <h3>Desempenho</h3>
-            <div class="media">
-                <div class="media-acerto">
-                    <h4>Média de acertos</h3>
-                    <p>10</p>
-                </div>
-                <div class="media-erro">
-                    <h4>Média de erros</h3>
-                    <p>10</p>
-                </div>
             </div>
-        </div>
 
-        <div class="ranking-temas">
-            <span>temas</span>
-            <h3>Ranking</h3>
-            <div class="ranking-temas-container">
-                <div class="ranking-unico">
-                    <h4>HTML</h4>
-                    <ol>
-                        <li>gabriel</li>
-                        <li>gustavo</li>
-                        <li>lucas</li>
-                        <li>fernando</li>
-                        <li>pedro</li>
-                    </ol>
-                </div>
-                <div class="ranking-unico">
-                    <h4>CSS</h4>
-                    <ol>
-                        <li>gabriel</li>
-                        <li>gustavo</li>
-                        <li>lucas</li>
-                        <li>fernando</li>
-                        <li>pedro</li>
-                    </ol>
-                </div>
-                <div class="ranking-unico">
-                    <h4>JavaScript</h4>
-                    <ol>
-                        <li>gabriel</li>
-                        <li>gustavo</li>
-                        <li>lucas</li>
-                        <li>fernando</li>
-                        <li>pedro</li>
-                    </ol>
-                </div>
+            <div class="desempenho">
             </div>
-        </div>
-    </section> -->
+    </section>
 
     <div class="btns">
         <button id="btn-reiniciar" class="btn">Reiniciar</button>
         <button id="btn-concluir" class="btn">Concluir</button>
+        <button id="btn-jogar" class="btn">Jogar novamente</button>
     </div> 
+    
     <script type="module" src="./js/script.js"></script>
     <script type="module" src="./js/cronometro.js"></script>
     <script type="module" src="./js/musica.js"></script>
@@ -141,5 +79,6 @@
     <script type="module" src="./js/tela-inicial.js"></script>
     <script type="module" src="./js/verificarRespostas.js"></script>
     <script type="module" src="./js/reiniciarquiz.js"></script>
+    <script type="module" src="./js/resultadoQuiz.js"></script>
 </body>
 </html>

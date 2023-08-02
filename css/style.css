@@ -6,8 +6,7 @@
 
 @font-face {
     font-family: "Mona Sans";
-    src: url("Mona-Sans.woff2") format("woff2 supports variations"),
-        url("Mona-Sans.woff2") format("woff2-variations");
+    src: url("Mona-Sans.woff2") format("woff2 supports variations");
     font-weight: 200 900;
     font-stretch: 75% 125%;
 }
@@ -238,6 +237,7 @@ header button:hover {
 }
 
 .btn{
+    cursor: pointer;
     padding: 1rem;
     border: none;
     border-radius: 15px;
@@ -264,7 +264,7 @@ header button:hover {
 .resultado {
     width: 100%;
     padding: 4rem 2rem;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;

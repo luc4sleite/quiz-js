@@ -4,7 +4,7 @@ const botao = document.getElementById('botao');
 const audioPlay = document.getElementById('audioPlay');
 const reprodutor = document.getElementById('reprodutor');
 
-
+// window.onload = audioPlay.play();
 
 botao.addEventListener('click', () => {
     if (reprodutor.innerText=="play_arrow") {
