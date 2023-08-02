@@ -253,7 +253,7 @@ header button:hover {
     color: var(--font-color-3);
 }
 
-#btn-reiniciar:hover{
+#btn-jogar:hover{
     background-color: var(--font-color-5);
     color: var(--font-color-3);
 }
@@ -332,14 +332,14 @@ header button:hover {
     text-transform: uppercase;
 }
 
-.media {
+.usuario {
     display: flex;
     width: 100%;
     column-gap: 5rem;
     margin-top: 1rem;
 }
 
-.media-acerto, .media-erro {
+.usuario-acerto, .usuario-erro {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -350,20 +350,20 @@ header button:hover {
     gap: 0.5rem;
 }
 
-.media-acerto {
+.usuario-acerto {
     background-color: green;
 }
 
-.media-erro {
+.usuario-erro {
     background-color: red;
 }
 
-.media-acerto h4, .media-erro h4 {
+.usuario-acerto h4, .usuario-erro h4 {
     font-weight: 400;
     font-size: 14px;
 }
 
-.media-acerto p, .media-erro p {
+.usuario-acerto p, .usuario-erro p {
     font-weight: 900;
     font-size: 32px;
 }

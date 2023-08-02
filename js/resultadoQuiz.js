@@ -14,6 +14,17 @@ export function incluirDados(nome, tema, tempo, data, pontos) {
     });
 }
 
+function calculaMedia() {
+    let media = 0;
+    for (let i = 0; i < dadosRanking.length; i++) {
+        media += dadosRanking[i].pontos;
+    }
+    media = media / dadosRanking.length;
+    return media;
+}
+
+console.log(calculaMedia());
+
 function ordenarRanking() {
     dadosRanking.sort((a, b) => {
         if (a.pontos > b.pontos) {
@@ -45,15 +56,21 @@ export function exibirRanking(id, pontos) {
     desempenho.innerHTML = `
         <span>seu</span>
         <h3>Desempenho</h3>
-        <div class="media">
-            <div class="media-acerto">
-                <h4>Média de acertos</h3>
+        <div class="usuario">
+            <div class="usuario-acerto">
+                <h4>Acertos</h3>
                 <p>${pontos}/10</p>
             </div>
-            <div class="media-erro">
-                <h4>Média de erros</h3>
+            <div class="usuario-erro">
+                <h4>Erros</h3>
                 <p>${Math.abs(pontos - 10)}/10</p>
             </div>
+        </div>
+        <div class="media">
+            <h3>Média de acertos</h3>
+            <p>${calculaMedia().toFixed(1)}/10</p>
+            <h3>Média de erros</h3>
+            <p>${(10 - calculaMedia()).toFixed(1)}/10</p>
         </div>
     `
 
