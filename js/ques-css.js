@@ -1,5 +1,6 @@
 export const perguntasCSS = [
     {
+        tema: "CSS",
         id: 1,
         pergunta: "O que significa a sigla CSS?",
         alternativas: [
@@ -11,12 +12,14 @@ export const perguntasCSS = [
         resposta: "2",
     },
     {
+        tema: "CSS",
         id: 2,
         pergunta: "Qual propriedade CSS é usada para alterar a cor do texto?",
         alternativas: ["text-color", "color", "font-color", "text-style"],
         resposta: "2",
     },
     {
+        tema: "CSS",
         id: 3,
         pergunta:
             "Qual seletor CSS é usado para aplicar regras a um elemento com um determinado ID?",
@@ -24,6 +27,7 @@ export const perguntasCSS = [
         resposta: "1",
     },
     {
+        tema: "CSS",
         id: 4,
         pergunta:
             "O CSS Grid e o Flexbox são usados para o mesmo propósito?",
@@ -31,6 +35,7 @@ export const perguntasCSS = [
         resposta: "2",
     },
     {
+        tema: "CSS",
         id: 5,
         pergunta:
             "Qual propriedade CSS é usada para adicionar sombras aos elementos?",
@@ -43,6 +48,7 @@ export const perguntasCSS = [
         resposta: "2",
     },
     {
+        tema: "CSS",
         id: 6,
         pergunta:
             "Qual propriedade CSS é usada para alterar o tamanho da fonte do texto?",
@@ -50,6 +56,7 @@ export const perguntasCSS = [
         resposta: "2",
     },
     {
+        tema: "CSS",
         id: 7,
         pergunta:
             "Qual é a sintaxe correta para selecionar todos os elementos <p> que estão dentro de um elemento <div>?",
@@ -57,6 +64,7 @@ export const perguntasCSS = [
         resposta: "1",
     },
     {
+        tema: "CSS",
         id: 8,
         pergunta:
             "Qual propriedade CSS é usada para adicionar espaçamento entre as linhas do texto?",
@@ -69,6 +77,7 @@ export const perguntasCSS = [
         resposta: "1",
     },
     {
+        tema: "CSS",
         id: 9,
         pergunta:
             "Qual seletor CSS é usado para aplicar regras a um elemento quando o cursor passa sobre ele?",
@@ -76,6 +85,7 @@ export const perguntasCSS = [
         resposta: "1",
     },
     {
+        tema: "CSS",
         id: 10,
         pergunta:
             "O CSS é uma linguagem de programação usada para criar páginas web interativas?",

@@ -3,6 +3,10 @@ import { dadosRanking } from "./dadosRanking.js";
 const tabelaResultado = document.querySelector(".resultado");
 const desempenho = document.querySelector(".desempenho");
 const rankingDados = document.querySelector("#ranking-dados");
+const rankingTemas = document.querySelector(".ranking-temas");
+const rankingTemasHTML = document.querySelector(".ranking-temas-html");
+const rankingTemasCSS = document.querySelector(".ranking-temas-css");
+const rankingTemasJS = document.querySelector(".ranking-temas-javascript");
 
 export function incluirDados(nome, tema, tempo, data, pontos) {
     dadosRanking.push({
@@ -73,43 +77,40 @@ export function exibirRanking(id, pontos) {
             <p class="vermelho">${(10 - calculaMedia()).toFixed(1)}/10</p>
         </div>
     `
+}
 
-    console.log(dadosRanking);
-    
-    // <div class="ranking-temas">
-    // <span>temas</span>
-    // <h3>Ranking</h3>
-    // <div class="ranking-temas-container">
-    //     <div class="ranking-unico">
-    //         <h4>HTML</h4>
-    //         <ol>
-    //             <li>gabriel</li>
-    //             <li>gustavo</li>
-    //             <li>lucas</li>
-    //             <li>fernando</li>
-    //             <li>pedro</li>
-    //         </ol>
-    //     </div>
-    //     <div class="ranking-unico">
-    //         <h4>CSS</h4>
-    //         <ol>
-    //             <li>gabriel</li>
-    //             <li>gustavo</li>
-    //             <li>lucas</li>
-    //             <li>fernando</li>
-    //             <li>pedro</li>
-    //         </ol>
-    //     </div>
-    //     <div class="ranking-unico">
-    //         <h4>JavaScript</h4>
-    //         <ol>
-    //             <li>gabriel</li>
-    //             <li>gustavo</li>
-    //             <li>lucas</li>
-    //             <li>fernando</li>
-    //             <li>pedro</li>
-    //         </ol>
-    //     </div>
-    // </div>
-    // </div>
+export function exibirRankingTemas(){
+    rankingTemasHTML.innerHTML = "";
+    rankingTemasCSS.innerHTML = "";
+    rankingTemasJS.innerHTML = "";
+    for(let i = 0; i < dadosRanking.length; i++){
+        if(dadosRanking[i].tema == "HTML"){
+            rankingTemasHTML.innerHTML += `
+                <li>
+                    <div>
+                        <h4>${dadosRanking[i].nome}</h4>
+                        <p>${dadosRanking[i].pontos}/10</p>
+                    </div>
+                </li>
+            `
+        } else if (dadosRanking[i].tema == "CSS"){
+            rankingTemasCSS.innerHTML += `
+                <li>
+                    <div>
+                        <h4>${dadosRanking[i].nome}</h4>
+                        <p>${dadosRanking[i].pontos}/10</p>
+                    </div>
+                </li>
+            `
+        } else if (dadosRanking[i].tema == "JavaScript"){
+            rankingTemasJS.innerHTML += `
+                <li>
+                    <div>
+                        <h4>${dadosRanking[i].nome}</h4>
+                        <p>${dadosRanking[i].pontos}/10</p>
+                    </div>
+                </li>
+            `
+        }
+    }
 }

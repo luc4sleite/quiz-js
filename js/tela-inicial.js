@@ -5,7 +5,7 @@ import { perguntasJavaScript } from "./ques-js.js";
 import { verificarRespostas } from "./verificarRespostas.js";
 import { calcularTempoPercorrido, iniciarCronometro } from "./cronometro.js";
 import { pararCronometro } from "./cronometro.js";
-import { exibirRanking, incluirDados } from "./resultadoQuiz.js";
+import { exibirRanking, exibirRankingTemas, incluirDados } from "./resultadoQuiz.js";
 
 const campoNome = document.querySelector(".nome");
 const btnAcesso = document.querySelector("#btn-inicio");
@@ -20,6 +20,19 @@ const btnVerificar = document.querySelector("#btn-verificar")
 const reiniciarConcluirDiv = document.querySelector("#botoes");
 const ranking = document.querySelector(".resultado");
 const cronometroDisplay = document.querySelector("#cronometroDisplay");
+
+function limparCampos() {
+    campoNome.value = "";
+    quiz.value = "selecione";
+}
+
+function desmarcarAlternativas() {
+    const inputEl = document.querySelectorAll(".alternativa");
+    for (let input of inputEl) {
+        input.checked = false;
+    }
+}
+
 
 function iniciarQuiz() {
     const data = new Date();
@@ -48,12 +61,15 @@ function iniciarQuiz() {
 
             btnConcluir.addEventListener("click", () => {
                 exibirRanking(quiz.value, pontuacao);
+                exibirRankingTemas();
                 btnConcluir.style.display = "none";
                 btnJogarNovamente.style.display = "flex";
                 html.style.display = "none";
                 window.scrollTo(0, 0);
 
                 btnJogarNovamente.addEventListener("click", () => {
+                    desmarcarAlternativas();
+                    limparCampos();
                     ranking.style.display = "none";
                     reiniciarConcluirDiv.style.display = "none";
                     pagina.style.display = "flex";
@@ -82,12 +98,15 @@ function iniciarQuiz() {
 
             btnConcluir.addEventListener("click", () => {
                 exibirRanking(quiz.value, pontuacao);
+                exibirRankingTemas();
                 btnConcluir.style.display = "none";
                 btnJogarNovamente.style.display = "flex";
                 css.style.display = "none";
                 window.scrollTo(0, 0);
 
                 btnJogarNovamente.addEventListener("click", () => {
+                    desmarcarAlternativas();
+                    limparCampos();
                     ranking.style.display = "none";
                     reiniciarConcluirDiv.style.display = "none";
                     pagina.style.display = "flex";
@@ -115,12 +134,15 @@ function iniciarQuiz() {
 
             btnConcluir.addEventListener("click", () => {
                 exibirRanking(quiz.value, pontuacao);
+                exibirRankingTemas();
                 btnConcluir.style.display = "none";
                 btnJogarNovamente.style.display = "flex";
                 js.style.display = "none";
                 window.scrollTo(0, 0);
 
                 btnJogarNovamente.addEventListener("click", () => {
+                    desmarcarAlternativas();
+                    limparCampos();
                     ranking.style.display = "none";
                     reiniciarConcluirDiv.style.display = "none";
                     pagina.style.display = "flex";

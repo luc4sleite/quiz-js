@@ -7,7 +7,7 @@ export function exibePerguntas(perguntas, id) {
     `
     for (let i = 0; i <= perguntas.length - 1; i++) {
         tema.innerHTML += `
-            <div class="pergunta-container" id="${perguntas[i].id}">
+            <div class="pergunta-container" id="${perguntas[i].id}" data-tema="${perguntas[i].tema}">
                 <span>Questão ${perguntas[i].id}</span>
                 <h3>${perguntas[i].pergunta}</h3>
                 <div class="resposta-container">
