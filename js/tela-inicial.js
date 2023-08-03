@@ -142,7 +142,7 @@ function validarNome() {
         pagina.style.display = "none";
         iniciarCronometro();
         reiniciarConcluirDiv.style.display = "flex"
-        btnConcluir.style.display = "flex";
+        btnVerificar.style.display = "flex";
     }
 }
 
