@@ -1,117 +1,56 @@
-function iniciarQuiz() {
+import { reiniciarQuiz } from "./reiniciarquiz.js";
+import { exibeTema } from "./exibeTema.js";
+import { concluirQuiz } from "./concluirQuiz.js";
+import { verificarQuiz } from "./verificarQuiz.js";
+
+const campoNome = document.querySelector(".nome");
+const quiz = document.querySelector("#tema-quiz");
+const btnConcluir = document.querySelector("#btn-concluir");
+const btnJogarNovamente = document.querySelector("#btn-jogar");
+const btnVerificar = document.querySelector("#btn-verificar");
+
+export function iniciarQuiz() {
     const data = new Date();
     const dia = data.getDate();
     const mes = data.getMonth() + 1;
     const ano = data.getFullYear();
     const dataAtual = `${dia}/${mes}/${ano}`;
 
-
     if (quiz.value == "HTML" && campoNome.value != "") {
-        html.style.display = "flex";
-        exibePerguntas(perguntasHTML, "HTML");
-        btnJogarNovamente.style.display = "none";
-        btnConcluir.style.display = "none";
-
+        exibeTema("HTML");
+        
         btnVerificar.addEventListener("click", () => {
-            const dataFinal = new Date();
-            const tempo = calcularTempoPercorrido(data, dataFinal);
-            const tempoFormatado = `${tempo.minutos}:${tempo.segundos}`;
-            const pontuacao = verificarRespostas(perguntasHTML);
-            pararCronometro();
-            incluirDados(campoNome.value, quiz.value, tempoFormatado, dataAtual, pontuacao);
-            btnConcluir.style.display = "flex";
-            btnVerificar.style.display = "none";
-            window.scrollTo(0, 0);
-
+            const pontuacao = verificarQuiz(campoNome.value, quiz.value, data, dataAtual);
             btnConcluir.addEventListener("click", () => {
-                exibirRanking(quiz.value, pontuacao);
-                exibirRankingTemas();
-                btnConcluir.style.display = "none";
-                btnJogarNovamente.style.display = "flex";
-                html.style.display = "none";
-                window.scrollTo(0, 0);
-
+                concluirQuiz(campoNome.value,quiz.value, pontuacao);
                 btnJogarNovamente.addEventListener("click", () => {
-                    desmarcarAlternativas();
-                    limparCampos();
-                    ranking.style.display = "none";
-                    reiniciarConcluirDiv.style.display = "none";
-                    pagina.style.display = "flex";
-                    pararCronometro();
-                    cronometroDisplay.style.display = "none";
+                    reiniciarQuiz();
                 });
             });
         })
     }
     else if (quiz.value == "CSS" && campoNome.value != "") {
-        css.style.display = "flex";
-        exibePerguntas(perguntasCSS, "CSS");
-        btnJogarNovamente.style.display = "none";
-        btnConcluir.style.display = "none";
+        exibeTema("CSS");
 
         btnVerificar.addEventListener("click", () => {
-            const dataFinal = new Date();
-            const tempo = calcularTempoPercorrido(data, dataFinal);
-            const tempoFormatado = `${tempo.minutos}:${tempo.segundos}`;
-            const pontuacao = verificarRespostas(perguntasCSS);
-            pararCronometro();
-            incluirDados(campoNome.value, quiz.value, tempoFormatado, dataAtual, pontuacao);
-            btnConcluir.style.display = "flex";
-            btnVerificar.style.display = "none";
-            window.scrollTo(0, 0);
-
+            const pontuacao = verificarQuiz(campoNome.value, quiz.value, data, dataAtual);
             btnConcluir.addEventListener("click", () => {
-                exibirRanking(quiz.value, pontuacao);
-                exibirRankingTemas();
-                btnConcluir.style.display = "none";
-                btnJogarNovamente.style.display = "flex";
-                css.style.display = "none";
-                window.scrollTo(0, 0);
-
+                concluirQuiz(campoNome.value, quiz.value, pontuacao);
                 btnJogarNovamente.addEventListener("click", () => {
-                    desmarcarAlternativas();
-                    limparCampos();
-                    ranking.style.display = "none";
-                    reiniciarConcluirDiv.style.display = "none";
-                    pagina.style.display = "flex";
-                    pararCronometro();
-                    cronometroDisplay.style.display = "none";
+                    reiniciarQuiz();
                 });
             });
         })
     } else if (quiz.value == "JavaScript" && campoNome.value != "") {
-        js.style.display = "flex";
-        exibePerguntas(perguntasJavaScript, "JavaScript");
-        btnJogarNovamente.style.display = "none";
-        btnConcluir.style.display = "none";
+        exibeTema("JavaScript");
 
         btnVerificar.addEventListener("click", () => {
-            const dataFinal = new Date();
-            const tempo = calcularTempoPercorrido(data, dataFinal);
-            const tempoFormatado = `${tempo.minutos}:${tempo.segundos}`;
-            const pontuacao = verificarRespostas(perguntasJavaScript);
-            pararCronometro();
-            incluirDados(campoNome.value, quiz.value, tempoFormatado, dataAtual, pontuacao);
-            btnConcluir.style.display = "flex";
-            btnVerificar.style.display = "none";
-            window.scrollTo(0, 0);
-
+            const pontuacao = verificarQuiz(campoNome.value, quiz.value, data, dataAtual);
             btnConcluir.addEventListener("click", () => {
-                exibirRanking(quiz.value, pontuacao);
-                exibirRankingTemas();
-                btnConcluir.style.display = "none";
-                btnJogarNovamente.style.display = "flex";
-                js.style.display = "none";
-                window.scrollTo(0, 0);
+                concluirQuiz(campoNome.value, quiz.value, pontuacao);
 
                 btnJogarNovamente.addEventListener("click", () => {
-                    desmarcarAlternativas();
-                    limparCampos();
-                    ranking.style.display = "none";
-                    reiniciarConcluirDiv.style.display = "none";
-                    pagina.style.display = "flex";
-                    pararCronometro();
-                    cronometroDisplay.style.display = "none";
+                    reiniciarQuiz();
                 });
             });
         })
