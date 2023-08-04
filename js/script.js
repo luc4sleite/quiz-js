@@ -8,4 +8,4 @@ const btnAcesso = document.querySelector("#btn-inicio");
 btnAcesso.addEventListener("click", validarNome);
 btnAcesso.addEventListener("click", iniciarQuiz);
 darkMode();
-// tocarMusica();
+tocarMusica();
