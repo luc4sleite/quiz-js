@@ -7,24 +7,24 @@ export function exibePerguntas(perguntas, id) {
     `
     for (let i = 0; i <= perguntas.length - 1; i++) {
         tema.innerHTML += `
-            <div class="pergunta-container" id="${perguntas[i].id}">
+            <div class="pergunta-container" id="${perguntas[i].id}" data-tema="${perguntas[i].tema}">
                 <span>Questão ${perguntas[i].id}</span>
                 <h3>${perguntas[i].pergunta}</h3>
                 <div class="resposta-container">
-                    <input class="alternativa" type="radio" value="1"  id="resposta1-${perguntas[i].id}" name="${perguntas[i].id}"> 
-                    <label for="resposta1-${perguntas[i].id}">${perguntas[i].alternativas[0]}</label>
+                    <input class="alternativa" type="radio" value="1-${id}" id="resposta1-${perguntas[i].id}-${perguntas[i].tema}" name="${perguntas[i].id}"> 
+                    <label for="resposta1-${perguntas[i].id}-${perguntas[i].tema}">${perguntas[i].alternativas[0]}</label>
                 </div>
                 <div class="resposta-container">
-                    <input class="alternativa" type="radio" value="2"  id="resposta2-${perguntas[i].id}" name="${perguntas[i].id}"> 
-                    <label for="resposta2-${perguntas[i].id}">${perguntas[i].alternativas[1]}</label>
+                    <input class="alternativa" type="radio" value="2-${id}"  id="resposta2-${perguntas[i].id}-${perguntas[i].tema}" name="${perguntas[i].id}"> 
+                    <label for="resposta2-${perguntas[i].id}-${perguntas[i].tema}">${perguntas[i].alternativas[1]}</label>
                 </div>
                 <div class="resposta-container">
-                    <input class="alternativa" type="radio" value="3"  id="resposta3-${perguntas[i].id}" name="${perguntas[i].id}"> 
-                    <label for="resposta3-${perguntas[i].id}">${perguntas[i].alternativas[2]}</label>
+                    <input class="alternativa" type="radio" value="3-${id}"  id="resposta3-${perguntas[i].id}-${perguntas[i].tema}" name="${perguntas[i].id}"> 
+                    <label for="resposta3-${perguntas[i].id}-${perguntas[i].tema}">${perguntas[i].alternativas[2]}</label>
                 </div>
                 <div class="resposta-container">
-                    <input class="alternativa" type="radio" value="4"  id="resposta4-${perguntas[i].id}" name="${perguntas[i].id}"> 
-                    <label for="resposta4-${perguntas[i].id}">${perguntas[i].alternativas[3]}</label>
+                    <input class="alternativa" type="radio" value="4-${id}"  id="resposta4-${perguntas[i].id}-${perguntas[i].tema}" name="${perguntas[i].id}"> 
+                    <label for="resposta4-${perguntas[i].id}-${perguntas[i].tema}">${perguntas[i].alternativas[3]}</label>
                 </div>
             </div>
         `
@@ -37,6 +37,7 @@ export function exibePerguntas(perguntas, id) {
     for(let input of inputEl){
         input.addEventListener("click", (event)=>{
             const inputClicked = event.target 
+            console.log(inputClicked);
             // Verifica se é o El alvo      
             for(let otherInput of inputEl){
                 const otherContainer = otherInput.parentNode;

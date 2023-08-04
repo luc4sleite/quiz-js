@@ -8,7 +8,7 @@ export function verificarRespostas(perguntas) {
         const idPergunta = pergunta.id;
         const respostaSelecionada = pergunta.querySelector(".alternativa:checked");
         const respostaCerta = perguntas[idPergunta - 1].resposta;
-        
+
         if (respostaSelecionada) {
             const resposta = respostaSelecionada.value;
             respostasSelecionadas[idPergunta - 1] = resposta;
@@ -19,14 +19,10 @@ export function verificarRespostas(perguntas) {
             } else {
                 respostaSelecionada.parentElement.style.backgroundColor = "red";
             }
+        } else {
+            pergunta.querySelector(".alternativa[value='" + respostaCerta + "']").parentElement.style.backgroundColor = "green";
+            pergunta.querySelector(".alternativa[value='" + respostaCerta + "']").parentElement.style.color = "white";
         }
-
-        // for (let alternativa of pergunta.querySelectorAll(".alternativa")) {
-        //     alternativa.disabled = true;
-        // }
-
-        pergunta.querySelector(".alternativa[value='" + respostaCerta + "']").parentElement.style.backgroundColor = "green";
-        pergunta.querySelector(".alternativa[value='" + respostaCerta + "']").parentElement.style.color = "white";
     }
     return pontuacao;
 }

@@ -14,6 +14,11 @@ export function pararCronometro() {
   return segundos;
 }
 
+export function zerarCronometro(){
+  segundos = 0;
+  atualizarCronometroDisplay();
+}
+
 function atualizarCronometro() {
   segundos++;
   atualizarCronometroDisplay();

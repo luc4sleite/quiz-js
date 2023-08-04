@@ -1,2 +1,11 @@
-//Função alterar o tema, cronometro e botão de play/pause criar arquivos separados.
-// Só a chamadas das funções!
+import { validarNome } from "./validarNome.js";
+import { tocarMusica } from "./musica.js";
+import { darkMode } from "./mudancaTema.js";
+import { iniciarQuiz } from "./iniciarQuiz.js";
+
+const btnAcesso = document.querySelector("#btn-inicio");
+
+btnAcesso.addEventListener("click", validarNome);
+btnAcesso.addEventListener("click", iniciarQuiz);
+darkMode();
+// tocarMusica();
