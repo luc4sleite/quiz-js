@@ -4,7 +4,7 @@ export const perguntasJavaScript = [
         id: 1,
         pergunta: "Quais dos seguintes é um tipo de dados em JavaScript?",
         alternativas: ["string", "booleano", "ambos", "nenhum"],
-        resposta: "3",
+        resposta: "3-JavaScript",
     },
     {
         tema: "JavaScript",
@@ -17,7 +17,7 @@ export const perguntasJavaScript = [
             "create function myFunction()",
             "new Function()",
         ],
-        resposta: "1",
+        resposta: "1-JavaScript",
     },
     {
         tema: "JavaScript",
@@ -25,7 +25,7 @@ export const perguntasJavaScript = [
         pergunta:
             "Qual método de array é usado para adicionar um ou mais elementos ao final do array e retorna o novo comprimento do array?",
         alternativas: ["pop()", "push()", "append()", "join()"],
-        resposta: "2",
+        resposta: "2-JavaScript",
     },
     {
         tema: "JavaScript",
@@ -33,14 +33,14 @@ export const perguntasJavaScript = [
         pergunta:
             "O JavaScript é uma linguagem de programação compilada?",
         alternativas: ["Sim", "Não", "Às vezes", "Depende"],
-        resposta: "2",
+        resposta: "2-JavaScript",
     },
     {
         tema: "JavaScript",
         id: 5,
         pergunta: "Qual símbolo é usado para comentários em JavaScript?",
         alternativas: ["//", "/* */", "<!-- -->", "#"],
-        resposta: "1",
+        resposta: "1-JavaScript",
     },
     {
         tema: "JavaScript",
@@ -48,7 +48,7 @@ export const perguntasJavaScript = [
         pergunta:
             "Qual método de string é usado para combinar a regexpr com a string e substituir o conteúdo correspondente?",
         alternativas: ["match()", "replace()", "search()", "concat()"],
-        resposta: "2",
+        resposta: "2-JavaScript",
     },
     {
         tema: "JavaScript",
@@ -56,14 +56,14 @@ export const perguntasJavaScript = [
         pergunta:
             "Qual declaração é usada para testar condições em JavaScript?",
         alternativas: ["if/else", "for", "switch", "teste"],
-        resposta: "1",
+        resposta: "1-JavaScript",
     },
     {
         tema: "JavaScript",
         id: 8,
         pergunta: "Qual é o operador de atribuição em JavaScript?",
         alternativas: ["=", "==", "===", ":="],
-        resposta: "1",
+        resposta: "1-JavaScript",
     },
     {
         tema: "JavaScript",
@@ -76,13 +76,13 @@ export const perguntasJavaScript = [
             "Math.round()",
             "Math.random()",
         ],
-        resposta: "3",
+        resposta: "3-JavaScript",
     },
     {
         tema: "JavaScript",
         id: 10,
         pergunta: "Qual evento é acionado quando um elemento HTML é clicado?",
         alternativas: ["onchange", "onmouseclick", "onclick", "onmouseover"],
-        resposta: "3",
+        resposta: "3-JavaScript",
     },
 ];

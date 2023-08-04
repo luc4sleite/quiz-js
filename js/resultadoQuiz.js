@@ -3,19 +3,20 @@ import { dadosRanking } from "./dadosRanking.js";
 const tabelaResultado = document.querySelector(".resultado");
 const desempenho = document.querySelector(".desempenho");
 const rankingDados = document.querySelector("#ranking-dados");
-const rankingTemas = document.querySelector(".ranking-temas");
 const rankingTemasHTML = document.querySelector(".ranking-temas-html");
 const rankingTemasCSS = document.querySelector(".ranking-temas-css");
 const rankingTemasJS = document.querySelector(".ranking-temas-javascript");
 
 export function incluirDados(nome, tema, tempo, data, pontos) {
     dadosRanking.push({
+        id: dadosRanking.length + 1,
         nome: nome,
         tema: tema,
         tempo: tempo,
         data: data,
         pontos: pontos
     });
+    
 }
 
 function calculaMedia() {
@@ -26,8 +27,6 @@ function calculaMedia() {
     media = media / dadosRanking.length;
     return media;
 }
-
-console.log(calculaMedia());
 
 function ordenarRanking() {
     dadosRanking.sort((a, b) => {

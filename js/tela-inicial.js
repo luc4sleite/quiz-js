@@ -33,6 +33,71 @@ function desmarcarAlternativas() {
     }
 }
 
+function reiniciarQuiz() {
+    html.innerHTML = "";
+    css.innerHTML = "";
+    js.innerHTML = "";
+    ranking.style.display = "none";
+    reiniciarConcluirDiv.style.display = "none";
+    pagina.style.display = "flex";
+    pararCronometro();
+    cronometroDisplay.style.display = "none";
+}
+
+
+function concluirQuiz(tema, pontuacao) {
+    exibirRanking(tema, pontuacao);
+    exibirRankingTemas();
+    desmarcarAlternativas();
+    limparCampos();
+    btnConcluir.style.display = "none";
+    btnJogarNovamente.style.display = "flex";
+    html.style.display = "none";
+    css.style.display = "none";
+    js.style.display = "none";
+    window.scrollTo(0, 0);
+}
+
+function exibeTema(tema) {
+    btnJogarNovamente.style.display = "none";
+    btnConcluir.style.display = "none";
+    if(tema == "HTML"){
+        html.style.display = "flex";
+        css.innerHTML = "";
+        js.innerHTML = "";
+        exibePerguntas(perguntasHTML, "HTML");
+    } else if (tema == "CSS"){
+        css.style.display = "flex";
+        html.innerHTML = "";
+        js.innerHTML = "";
+        exibePerguntas(perguntasCSS, "CSS");
+    } else if (tema == "JavaScript"){
+        js.style.display = "flex";
+        html.innerHTML = "";
+        css.innerHTML = "";
+        exibePerguntas(perguntasJavaScript, "JavaScript");
+    }
+}
+
+function verificarQuiz(nome, tema, data, dataAtual) {
+    const dataFinal = new Date();
+    const tempo = calcularTempoPercorrido(data, dataFinal);
+    const tempoFormatado = `${tempo.minutos}:${tempo.segundos}`;
+    btnConcluir.style.display = "flex";
+    btnVerificar.style.display = "none";
+    window.scrollTo(0, 0);
+    pararCronometro();
+    let pontuacao = 0;
+    if(tema == "HTML"){
+        pontuacao = verificarRespostas(perguntasHTML);
+    } else if (tema == "CSS"){
+        pontuacao = verificarRespostas(perguntasCSS);
+    } else if (tema == "JavaScript"){
+        pontuacao = verificarRespostas(perguntasJavaScript);
+    }
+    incluirDados(nome, tema, tempoFormatado, dataAtual, pontuacao);
+    return pontuacao;
+}
 
 function iniciarQuiz() {
     const data = new Date();
@@ -41,113 +106,41 @@ function iniciarQuiz() {
     const ano = data.getFullYear();
     const dataAtual = `${dia}/${mes}/${ano}`;
 
-
     if (quiz.value == "HTML" && campoNome.value != "") {
-        html.style.display = "flex";
-        exibePerguntas(perguntasHTML, "HTML");
-        btnJogarNovamente.style.display = "none";
-        btnConcluir.style.display = "none";
-
+        exibeTema("HTML");
+        
         btnVerificar.addEventListener("click", () => {
-            const dataFinal = new Date();
-            const tempo = calcularTempoPercorrido(data, dataFinal);
-            const tempoFormatado = `${tempo.minutos}:${tempo.segundos}`;
-            const pontuacao = verificarRespostas(perguntasHTML);
-            pararCronometro();
-            incluirDados(campoNome.value, quiz.value, tempoFormatado, dataAtual, pontuacao);
-            btnConcluir.style.display = "flex";
-            btnVerificar.style.display = "none";
-            window.scrollTo(0, 0);
-
+            const pontuacao = verificarQuiz(campoNome.value, quiz.value, data, dataAtual);
             btnConcluir.addEventListener("click", () => {
-                exibirRanking(quiz.value, pontuacao);
-                exibirRankingTemas();
-                btnConcluir.style.display = "none";
-                btnJogarNovamente.style.display = "flex";
-                html.style.display = "none";
-                window.scrollTo(0, 0);
-
+                concluirQuiz(quiz.value, pontuacao);
                 btnJogarNovamente.addEventListener("click", () => {
-                    desmarcarAlternativas();
-                    limparCampos();
-                    ranking.style.display = "none";
-                    reiniciarConcluirDiv.style.display = "none";
-                    pagina.style.display = "flex";
-                    pararCronometro();
-                    cronometroDisplay.style.display = "none";
+                    reiniciarQuiz();
                 });
             });
         })
     }
     else if (quiz.value == "CSS" && campoNome.value != "") {
-        css.style.display = "flex";
-        exibePerguntas(perguntasCSS, "CSS");
-        btnJogarNovamente.style.display = "none";
-        btnConcluir.style.display = "none";
+        exibeTema("CSS");
 
         btnVerificar.addEventListener("click", () => {
-            const dataFinal = new Date();
-            const tempo = calcularTempoPercorrido(data, dataFinal);
-            const tempoFormatado = `${tempo.minutos}:${tempo.segundos}`;
-            const pontuacao = verificarRespostas(perguntasCSS);
-            pararCronometro();
-            incluirDados(campoNome.value, quiz.value, tempoFormatado, dataAtual, pontuacao);
-            btnConcluir.style.display = "flex";
-            btnVerificar.style.display = "none";
-            window.scrollTo(0, 0);
-
+            const pontuacao = verificarQuiz(campoNome.value, quiz.value, data, dataAtual);
             btnConcluir.addEventListener("click", () => {
-                exibirRanking(quiz.value, pontuacao);
-                exibirRankingTemas();
-                btnConcluir.style.display = "none";
-                btnJogarNovamente.style.display = "flex";
-                css.style.display = "none";
-                window.scrollTo(0, 0);
-
+                concluirQuiz(quiz.value, pontuacao);
                 btnJogarNovamente.addEventListener("click", () => {
-                    desmarcarAlternativas();
-                    limparCampos();
-                    ranking.style.display = "none";
-                    reiniciarConcluirDiv.style.display = "none";
-                    pagina.style.display = "flex";
-                    pararCronometro();
-                    cronometroDisplay.style.display = "none";
+                    reiniciarQuiz();
                 });
             });
         })
     } else if (quiz.value == "JavaScript" && campoNome.value != "") {
-        js.style.display = "flex";
-        exibePerguntas(perguntasJavaScript, "JavaScript");
-        btnJogarNovamente.style.display = "none";
-        btnConcluir.style.display = "none";
+        exibeTema("JavaScript");
 
         btnVerificar.addEventListener("click", () => {
-            const dataFinal = new Date();
-            const tempo = calcularTempoPercorrido(data, dataFinal);
-            const tempoFormatado = `${tempo.minutos}:${tempo.segundos}`;
-            const pontuacao = verificarRespostas(perguntasJavaScript);
-            pararCronometro();
-            incluirDados(campoNome.value, quiz.value, tempoFormatado, dataAtual, pontuacao);
-            btnConcluir.style.display = "flex";
-            btnVerificar.style.display = "none";
-            window.scrollTo(0, 0);
-
+            const pontuacao = verificarQuiz(campoNome.value, quiz.value, data, dataAtual);
             btnConcluir.addEventListener("click", () => {
-                exibirRanking(quiz.value, pontuacao);
-                exibirRankingTemas();
-                btnConcluir.style.display = "none";
-                btnJogarNovamente.style.display = "flex";
-                js.style.display = "none";
-                window.scrollTo(0, 0);
+                concluirQuiz(quiz.value, pontuacao);
 
                 btnJogarNovamente.addEventListener("click", () => {
-                    desmarcarAlternativas();
-                    limparCampos();
-                    ranking.style.display = "none";
-                    reiniciarConcluirDiv.style.display = "none";
-                    pagina.style.display = "flex";
-                    pararCronometro();
-                    cronometroDisplay.style.display = "none";
+                    reiniciarQuiz();
                 });
             });
         })
@@ -168,14 +161,5 @@ function validarNome() {
     }
 }
 
-// function concluir() {
-//     if(ranking.style.display == "flex"){
-//         ranking.style.display = "none";
-//         pagina.style.display = "flex";
-//     }
-// }
-
 btnAcesso.addEventListener("click", validarNome);
 btnAcesso.addEventListener("click", iniciarQuiz);
-    // const btnReiniciar = document.querySelector("#btn-reiniciar");
-    // btnReiniciar.addEventListener("click", concluir);

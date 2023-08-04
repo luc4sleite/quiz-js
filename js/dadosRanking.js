@@ -1,5 +1,6 @@
 export const dadosRanking = [
     {
+        id: 1,
         nome: "Gabriel",
         tema: "JavaScript",
         tempo: "00:42",
@@ -7,6 +8,7 @@ export const dadosRanking = [
         pontos: 9
     },
     {
+        id: 2,
         nome: "Lucas",
         tema: "CSS",
         tempo: "00:30",

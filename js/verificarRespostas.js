@@ -6,29 +6,22 @@ export function verificarRespostas(perguntas) {
 
     for (let pergunta of perguntasList) {
         const idPergunta = pergunta.id;
-        const temaSelecionado = pergunta.dataset.tema;
-        const tema = perguntas[idPergunta - 1].tema;
         const respostaSelecionada = pergunta.querySelector(".alternativa:checked");
         const respostaCerta = perguntas[idPergunta - 1].resposta;
 
-        if(temaSelecionado != tema){
-            console.log("tema errado " + temaSelecionado + " " + tema)
-            break;
-        } else {
-            if (respostaSelecionada) {
-                const resposta = respostaSelecionada.value;
-                respostasSelecionadas[idPergunta - 1] = resposta;
+        if (respostaSelecionada) {
+            const resposta = respostaSelecionada.value;
+            respostasSelecionadas[idPergunta - 1] = resposta;
 
-                if (resposta == perguntas[idPergunta - 1].resposta) {
-                    pontuacao++;
-                    respostaSelecionada.parentElement.style.backgroundColor = "green";
-                } else {
-                    respostaSelecionada.parentElement.style.backgroundColor = "red";
-                }
+            if (resposta == perguntas[idPergunta - 1].resposta) {
+                pontuacao++;
+                respostaSelecionada.parentElement.style.backgroundColor = "green";
             } else {
-                pergunta.querySelector(".alternativa[value='" + respostaCerta + "']").parentElement.style.backgroundColor = "green";
-                pergunta.querySelector(".alternativa[value='" + respostaCerta + "']").parentElement.style.color = "white";
+                respostaSelecionada.parentElement.style.backgroundColor = "red";
             }
+        } else {
+            pergunta.querySelector(".alternativa[value='" + respostaCerta + "']").parentElement.style.backgroundColor = "green";
+            pergunta.querySelector(".alternativa[value='" + respostaCerta + "']").parentElement.style.color = "white";
         }
     }
     return pontuacao;
