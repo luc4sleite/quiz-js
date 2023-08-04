@@ -9,6 +9,11 @@ const btnConcluir = document.querySelector("#btn-concluir");
 const btnJogarNovamente = document.querySelector("#btn-jogar");
 const btnVerificar = document.querySelector("#btn-verificar");
 
+function limparCampos(nome, tema) {
+    nome.value = "";
+    tema.value = "selecione";
+}
+
 export function iniciarQuiz() {
     const data = new Date();
     const dia = data.getDate();
@@ -22,7 +27,8 @@ export function iniciarQuiz() {
         btnVerificar.addEventListener("click", () => {
             const pontuacao = verificarQuiz(campoNome.value, quiz.value, data, dataAtual);
             btnConcluir.addEventListener("click", () => {
-                concluirQuiz(campoNome.value,quiz.value, pontuacao);
+                concluirQuiz(campoNome, quiz, pontuacao);
+                limparCampos(campoNome, quiz);
                 btnJogarNovamente.addEventListener("click", () => {
                     reiniciarQuiz();
                 });

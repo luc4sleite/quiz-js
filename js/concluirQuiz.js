@@ -8,10 +8,9 @@ const btnConcluir = document.querySelector("#btn-concluir");
 const btnJogarNovamente = document.querySelector("#btn-jogar");
 
 export function concluirQuiz(nome, tema, pontuacao) {
-    exibirRanking(tema, pontuacao);
+    exibirRanking(pontuacao);
     exibirRankingTemas();
     desmarcarAlternativas();
-    limparCampos(nome, tema);
     btnConcluir.style.display = "none";
     btnJogarNovamente.style.display = "flex";
     html.style.display = "none";
@@ -25,9 +24,4 @@ function desmarcarAlternativas() {
     for (let input of inputEl) {
         input.checked = false;
     }
-}
-
-function limparCampos(nome, tema) {
-    nome = "";
-    tema = "selecione";
 }

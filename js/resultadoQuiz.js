@@ -40,7 +40,7 @@ function ordenarRanking() {
     });
 }
 
-export function exibirRanking(id, pontos) {
+export function exibirRanking(pontos) {
     ordenarRanking();
     tabelaResultado.style.display = "flex";
     rankingDados.innerHTML = "";
