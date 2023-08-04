@@ -42,6 +42,7 @@ export function iniciarQuiz() {
             const pontuacao = verificarQuiz(campoNome.value, quiz.value, data, dataAtual);
             btnConcluir.addEventListener("click", () => {
                 concluirQuiz(campoNome.value, quiz.value, pontuacao);
+                limparCampos(campoNome, quiz);
                 btnJogarNovamente.addEventListener("click", () => {
                     reiniciarQuiz();
                 });
@@ -54,7 +55,7 @@ export function iniciarQuiz() {
             const pontuacao = verificarQuiz(campoNome.value, quiz.value, data, dataAtual);
             btnConcluir.addEventListener("click", () => {
                 concluirQuiz(campoNome.value, quiz.value, pontuacao);
-
+                limparCampos(campoNome, quiz);
                 btnJogarNovamente.addEventListener("click", () => {
                     reiniciarQuiz();
                 });
